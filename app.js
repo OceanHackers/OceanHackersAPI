@@ -235,15 +235,11 @@ var connection=mysql.createConnection(
         user:"oceanhackerAEADA",
         password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
         database:"webpage_1",
-        port:3306,
-        reconnect: true
-        // ssl: {
-        //     ca:fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")
-        // }
+        port:3306
     }
 );
 
 connection.connect(error=>{
-    if(error) throw error;
+    if(error) console.log("Database NOT WORK :(!")
     console.log("Database server running!")
 })
