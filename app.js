@@ -9,6 +9,7 @@ const test_data =require('./test_data.json')
 const app = express()
 app.use(express.json())
 
+mysql://b32fa719432e40:87de815a@us-cdbr-east-04.cleardb.com/heroku_28437b49d76cc53?reconnect=true
 var connection=mysql.createConnection(
     {
         host:"oceanhackers.mysql.database.azure.com",
@@ -16,9 +17,9 @@ var connection=mysql.createConnection(
         password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
         database:"webpage_1",
         port:3306,
-        ssl: {
-            ca:fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")
-        }
+        // ssl: {
+        //     ca:fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")
+        // }
     }
 );
 
