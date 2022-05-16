@@ -2,8 +2,6 @@ const express = require('express')
 const mysql = require('mysql')
 const fs = require('fs');
 
-const bodyParser = require('body-parser')
-
 const test_data =require('./test_data.json')
 
 const app = express()
