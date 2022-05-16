@@ -12,7 +12,8 @@ app.use(express.json())
 var connection=mysql.createConnection(
     {
         host:"oceanhackers.mysql.database.azure.com",
-        user:"oceanhackerAEADA", password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
+        user:"oceanhackerAEADA",
+        password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
         database:"webpage_1",
         port:3306,
         ssl: {
@@ -42,6 +43,10 @@ app.listen(PORT, () => {
 //     console.log(states);
 //     res.status(200).json(states)
 // })
+
+app.get("/", (req,res)=>{
+    res.send("OceanHackersAPI")
+})
 
 // CALL TO ADD TEST DATA 
 app.post("/test", (req, res)=>{
