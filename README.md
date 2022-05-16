@@ -1,7 +1,11 @@
-# RESTful Api
+# RESTful API
 
-Informacion
+<p align="center">
+  <img src="https://raw.githubusercontent.com/OceanHackers/HackTheOcean/main/media/img/Map.png", width=800px height=300px>
+</p>
 
-Contiene informacion acerca de las playas con mas contamincacion en las costas de Mexico
-Especies que habitan en dicho lugar
-Problemas por la contaminacion del oceano
+## - 👀 Informacion...
+     - Estados de la Republica Mexicana
+     - Playas
+     - Especies Acuaticas
+     - Problemas en el Oceano
