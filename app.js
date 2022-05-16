@@ -9,25 +9,6 @@ const test_data =require('./test_data.json')
 const app = express()
 app.use(express.json())
 
-mysql://b32fa719432e40:87de815a@us-cdbr-east-04.cleardb.com/heroku_28437b49d76cc53?reconnect=true
-var connection=mysql.createConnection(
-    {
-        host:"oceanhackers.mysql.database.azure.com",
-        user:"oceanhackerAEADA",
-        password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
-        database:"webpage_1",
-        port:3306,
-        // ssl: {
-        //     ca:fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")
-        // }
-    }
-);
-
-connection.connect(error=>{
-    if(error) throw error;
-    console.log("Database server running!")
-})
-
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
@@ -249,3 +230,22 @@ app.post("/missions/add", (req,res)=>{
         }
     })
 }) */
+
+var connection=mysql.createConnection(
+    {
+        host:"oceanhackers.mysql.database.azure.com",
+        user:"oceanhackerAEADA",
+        password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
+        database:"webpage_1",
+        port:3306,
+        reconnect: true
+        // ssl: {
+        //     ca:fs.readFileSync("./DigiCertGlobalRootCA.crt.pem")
+        // }
+    }
+);
+
+connection.connect(error=>{
+    if(error) throw error;
+    console.log("Database server running!")
+})
