@@ -141,18 +141,39 @@ app.get("/users", (req,res)=>{
         }
     })
 })
+
 app.get("/missions/:id", (req,res)=>{
     const {id} = req.params;
+    var object_result;
     const sql=`SELECT * FROM missions WHERE id_mission = ${id} `
     connection.query(sql,(error, result)=>{
         if(error) throw error;
         if(result.length>0){
-            res.status(200).json(result[0])
+            object_result = Object.values(JSON.parse(JSON.stringify(result)));
+            console.log(object_result[0])
+            image_result=searchImage(object_result[0].id_image).then(()=>{
+                object_result[0].image=Object.values(JSON.parse(JSON.stringify(image_result)));
+                console.log("IMAGEN:",object_result[0])
+                res.status(200).json(object_result[0])
+            })
         }else{
             res.status(400).json(null);
         }
     })
 })
+ async function searchImage(id){
+    const sql=`SELECT * FROM images WHERE id_image = ${id} `
+    console.log("Searching image with id "+id+"...")
+    connection.query(sql,(error, result)=>{
+        if(error) throw error;
+        console.log(result, result.length)
+        if(result.length>0){
+            return result[0]
+        }else{
+            return {}
+        }
+    })
+}
 
 app.get("/challenges/:id", (req,res)=>{
     const {id} = req.params;
