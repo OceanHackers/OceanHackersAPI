@@ -1,10 +1,12 @@
 const express = require('express')
 const mysql = require('mysql')
+const cors = require('cors')
 const fs = require('fs');
 
 const test_data =require('./test_data.json')
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 const PORT = process.env.PORT || 3000
@@ -25,7 +27,7 @@ app.listen(PORT, () => {
 // })
 
 app.get("/", (req,res)=>{
-    res.send("OceanHackersAPI")
+    res.status(200).send("OceanHackersAPI")
 })
 
 // CALL TO ADD TEST DATA 
@@ -235,7 +237,8 @@ var connection=mysql.createConnection(
         user:"oceanhackerAEADA",
         password:"Exception_Elongated_Native_Slashed_Barbell_Capsize",
         database:"webpage_1",
-        port:3306
+        port:3306,
+        ssl: true
     }
 );
 
