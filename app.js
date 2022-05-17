@@ -161,7 +161,7 @@ app.get("/missions/:id", (req,res)=>{
                 console.log(image_result, image_result.length)
                 if(image_result.length>0){
                     console.log("IMAGEN:",image_result)
-                    object_result[0].image=Object.values(JSON.parse(JSON.stringify(image_result)));
+                    object_result[0].image=Object.values(JSON.parse(JSON.stringify(image_result)))[0];
                     res.status(200).json(object_result[0])
                 }
             })
