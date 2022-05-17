@@ -202,6 +202,23 @@ app.post("/login/", (req,res)=>{
         }
     })
 })
+app.post("/image/add", (req,res)=>{
+    // console.log(req.body)
+    var image={
+        url: req.body.url,
+        description: req.body.description
+    };
+    const sql=`INSERT INTO images SET ?`
+    // console.log(image)
+    connection.query(sql, image, function(error, result){
+        // console.log("ERRORRRRRR:", error,"\nRESULLLLLLT", result)
+        if(error){
+            throw error;
+        }
+        res.status(200).json(result.insertId)
+        // console.log("._. IMAGE "+result.insertId+" UPLOAD")
+    })
+})
 /* 
 app.post("/missions/add", (req,res)=>{
     const {id} = req.params;
